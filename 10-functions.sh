@@ -7,7 +7,7 @@ validate(){
     then
         echo "$2 Package is allready installed and continuing the script."
     else
-        yum installl -y $2
+        yum install -y $2
         if [ $? -eq 0 ];
         then
             echo "$2 Package installed successfully and continuing."
