@@ -15,9 +15,3 @@ echo "all movies are ${MOVIES[@]:1:2}"  #slicing of array
 echo "all movies are ${MOVIES[@]:0:2}"  #slicing of array
 echo "all movies are ${MOVIES[@]:2:2}"  #slicing of array
 echo "all movies are ${MOVIES[@]:3:2}"  #slicing of array
-echo "all movies are ${MOVIES[@]:4:2}"  #slicing of array
-echo "all movies are ${MOVIES[@]:5:2}"  #slicing of array
-echo "all movies are ${MOVIES[@]:6:2}"  #slicing of array
-echo "all movies are ${MOVIES[@]:7:2}"  #slicing of array
-echo "all movies are ${MOVIES[@]:8:2}"  #slicing of array
-echo "all movies are ${MOVIES[@]:9:2}"  #slicing of array
