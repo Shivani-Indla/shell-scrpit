@@ -3,7 +3,7 @@
 if [ $UID -eq 0 ];
 then
     echo "You are root user."
-    dnf install -y nginx -y
+    dnf installl -y nginx -y
     if [ $? -eq 0 ];
     then
         echo "Nginx installed successfully."
