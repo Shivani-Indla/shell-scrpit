@@ -3,13 +3,18 @@
 if [ $UID -eq 0 ];
 then
     echo "You are root user."
-    dnf installl -y nginx -y
-    if [ $? -eq 0 ];
+    yum list installed nginx
+    if [ $? -ne 0 ]
     then
-        echo "Nginx installed successfully."
+        dnf installl -y nginx -y
+        if [ $? -eq 0 ];
+        then
+            echo "Nginx installed successfully."
+        else
+            echo "Something went wrong...! Installation failed."
+            exit 1
     else
-        echo "Nginx installation failed."
-        exit 1
+        echo "Package is already installed and continuing the script."
     fi
 else
     echo "Please run this script as root or with sudo."
