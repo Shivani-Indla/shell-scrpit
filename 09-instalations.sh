@@ -13,5 +13,6 @@ then
     fi
 else
     echo "Please run this script as root or with sudo."
+    exit 1
 fi
 echo "continuing script..."
