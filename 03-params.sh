@@ -1,8 +1,10 @@
 #!/bin/bash
 
-#delcaring variables
-PERSON1="Shiva"     #no space between equal sign and value
-PERSON2="Sravani"
+#passing the parameters to script from command line. ex #./03-params.sh Shiva Sravani
+# $1 is the first parameter
+# $2 is the second parameter vice versa.
+PERSON1=$1      
+PERSON2=$2
 
 #calling variables
 echo "$PERSON1:: Hello $PERSON2 how are you?"
