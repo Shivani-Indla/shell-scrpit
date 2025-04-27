@@ -12,5 +12,5 @@ then
         exit 1
     fi
 else
-    echo "Continuing the script"
+    echo "Please run this script as root or with sudo."
 fi
