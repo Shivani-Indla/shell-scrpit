@@ -1,2 +1,3 @@
 #!/bin/bash
-hellow world. This is sample script.
+
+echo " hello world. This is sample script. "
