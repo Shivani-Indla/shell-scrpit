@@ -6,7 +6,7 @@ then
     yum list installed nginx
     if [ $? -ne 0 ]
     then
-        dnf installl -y nginx -y
+        dnf install -y nginx -y
         if [ $? -eq 0 ];
         then
             echo "Nginx installed successfully."
