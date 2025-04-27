@@ -18,17 +18,17 @@ validate(){
     fi
 }
 
-if [ $USERID -eq 0 ];
+if [ $USERID -ne 0 ];
 then
-    echo "You are root user and executing the script."
-    yum list installed nginx
-    validate $? "nginx"
-
-    yum install -y git
-    validate $? "git"
-    
-else
     echo "Failed and Please run this script as root or with sudo."
-    exit 1
+    exit 1  
+else
+    echo "You are now root user and executing the script."
 fi
+
+yum list installed nginx
+validate $? "nginx"
+
+yum install -y git
+validate $? "git"
 echo "continuing script..."
