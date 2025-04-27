@@ -13,6 +13,7 @@ then
         else
             echo "Something went wrong...! Installation failed."
             exit 1
+        fi
     else
         echo "Package is already installed and continuing the script."
     fi
