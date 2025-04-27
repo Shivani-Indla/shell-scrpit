@@ -3,19 +3,29 @@
 USERID=$UID
 
 validate(){
-    echo "EXIT Status: $1"
-    echo "what are you doing: $2"
-
+    if [ $1 -eq 0 ];
+    then
+        echo "$2 Package is allready installed and continuing the script."
+    else
+        yum installl -y $2
+        if [ $? -eq 0 ];
+        then
+            echo "$2 Package installed successfully and continuing."
+        else
+            echo "Something went wrong...! Installation failed."
+            exit 1
+        fi
+    fi
 }
 
 if [ $USERID -eq 0 ];
 then
-    echo "You are root user."
+    echo "You are root user and executing the script."
     yum list installed nginx
-    validate $? "Installing nginx"
+    validate $? "nginx"
     
 else
-    echo "Please run this script as root or with sudo."
+    echo "Failed and Please run this script as root or with sudo."
     exit 1
 fi
 echo "continuing script..."
