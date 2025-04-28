@@ -30,10 +30,10 @@ VALIDATE(){
 
 if [ $USERID -ne 0 ]
 then
-    echo "Please run this script as root access"
+    echo "$RED Please run this script as root access $NORMAL"
     exit 1
 else
-    echo "You are super user."
+    echo "$GREEN You are super user. $NORMAL"
 fi
 
 
