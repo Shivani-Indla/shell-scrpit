@@ -16,6 +16,8 @@ VALIDATE(){
     else
         echo "installing $2 "
         dnf install $2 -y
+        systemctl enable $2
+        systemctl start $2
         if [ $? -eq 0 ]
         then 
             echo -e "Instalation of $Yellow $2 $NORMAL is $GREEN ....Success $NORMAL"
