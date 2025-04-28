@@ -6,6 +6,8 @@ RED="\e[31m"
 GREEN="\e[32m"
 Yellow="\e[33m"
 NORMAL="\e[0m"
+echo "Please enter sql password::"
+read -s MYSQL_ROOT_PASSWORD
 
 VALIDATE(){ 
 
@@ -16,11 +18,14 @@ VALIDATE(){
     else
         echo "installing $2 "
         dnf install $2 -y
-        mysql_secure_installation --set-root-pass ExpenceApp@1
         if [ $? -eq 0 ]
         then 
             echo -e "Instalation of $Yellow $2 $NORMAL is $GREEN ....Success $NORMAL"
-            echo "==================***=========================="
+            systemctl enable mysqld
+            systemctl start mysqld
+            # mysql_secure_installation --set-root-pass ExpenceApp@1
+            
+            echo "==================***=========================="  
         else
             echo -e "$RED error Please check the command $NORMAL" 
 
@@ -42,6 +47,6 @@ for i in $PACKAGES
 do
     echo -e "Package is about to install: $GREEN $i $NORMAL"
 
-    dnf list installed $i
+    mysql -h localhost -uroot -p$MYSQL_ROOT_PASSWORD -e 'show databases;'  # Root_password: ExpenceApp@1
     VALIDATE $? $i
 done
